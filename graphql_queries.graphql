@@ -2,53 +2,53 @@
 mutation{
   insert_user(objects: [
     {
-    first_name: "Nayan1",
-    last_name: "Das",
+    firstName: "Nayan1",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan2",
-    last_name: "Das",
+    firstName: "Nayan2",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan3",
-    last_name: "Das",
+    firstName: "Nayan3",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan4",
-    last_name: "Das",
+    firstName: "Nayan4",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan5",
-    last_name: "Das",
+    firstName: "Nayan5",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan6",
-    last_name: "Das",
+    firstName: "Nayan6",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan7",
-    last_name: "Das",
+    firstName: "Nayan7",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan8",
-    last_name: "Das",
+    firstName: "Nayan8",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan9",
-    last_name: "Das",
+    firstName: "Nayan9",
+    lastName: "Das",
     gender: "MALE"
   },
   {
-    first_name: "Nayan10",
-    last_name: "Das",
+    firstName: "Nayan10",
+    lastName: "Das",
     gender: "MALE"
   }]){
     returning{
@@ -60,17 +60,45 @@ mutation{
 
 mutation {
   insert_user_tracking(objects: [{
-    user_id: 3,
-    lat: 13.01932,
-    lng: 77.817743
+    user_id: 1,
+    lat: 12.85756937928062,
+    lng: 77.61318915277366
   },{
     user_id: 2,
-    lat: 12.862993,
-    lng: 77.617758
+    lat: 12.853440679404414,
+    lng: 77.61176111274312
   },{
-    user_id: 1,
-    lat: 12.858478,
-    lng: 77.61397
+    user_id: 3,
+    lat: 12.857254809260581,
+    lng: 77.60776825970675
+  },{
+    user_id: 4,
+    lat: 12.858866949817752,
+    lng: 77.60083118170229
+  },{
+    user_id: 5,
+    lat: 12.853652775134933,
+    lng: 77.6252963786232
+  },{
+    user_id: 6,
+    lat: 12.840824969612925,
+    lng: 77.59267881747729
+  },{
+    user_id: 7,
+    lat: 12.872993261047583,
+    lng: 77.62132609824806
+  },{
+    user_id: 8,
+    lat: 12.896148122737827,
+    lng: 77.64870317364398
+  }{
+    user_id: 9,
+    lat: 12.778103379324605,
+    lng: 77.59717319779247
+  },{
+    user_id: 10,
+    lat: 12.899985829728308,
+    lng: 77.77657385445826
   }], on_conflict: {
     constraint: user_tracking_pkey,
     update_columns: [lat,lng]
@@ -84,10 +112,23 @@ mutation {
 }
 
 query MyQuery {
-  search_users(args: {i_lat: "12.863898", i_lng: "77.621132", distance: 10}) {
-    id
-    location
+  user_by_pagination(args: {page_number: 1, page_size: 3}) {
     firstName
+    gender
+    id
     lastName
+  }
+}
+
+query MyQuery {
+  search_users(args: {distance: "50", i_lat: "12.85601806746186", i_lng: "77.61113968140324"}) {
+    firstName
+    gender
+    id
+    lastName
+    location {
+      lat
+      lng
+    }
   }
 }
