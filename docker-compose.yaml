@@ -17,8 +17,8 @@ services:
   #   environment:
   #     HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
   graphql-engine:
-    # image: hasura/graphql-engine:v2.4.0.cli-migrations-v3
-    image: hasura/graphql-engine:v2.4.0
+    image: hasura/graphql-engine:v2.4.0.cli-migrations-v3
+    # image: hasura/graphql-engine:v2.4.0
     ports:
     - "8080:8080"
     depends_on:
