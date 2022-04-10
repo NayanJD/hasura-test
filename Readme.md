@@ -6,6 +6,8 @@
 docker-compose up -d
 ```
 
+This would start the hasura metadata postgres and hasura engine server. It would also run the migrations and metadata export for newly started engine.
+
 2. Start the console server
 
 ```
