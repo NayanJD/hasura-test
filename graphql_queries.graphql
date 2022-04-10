@@ -1,26 +1,76 @@
-mutation {
-  insert_user_one(object: {
-    first_name: "Nayan",
+
+mutation{
+  insert_user(objects: [
+    {
+    first_name: "Nayan1",
     last_name: "Das",
-    gender: MALE
-  }){
-    id
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan2",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan3",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan4",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan5",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan6",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan7",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan8",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan9",
+    last_name: "Das",
+    gender: "MALE"
+  },
+  {
+    first_name: "Nayan10",
+    last_name: "Das",
+    gender: "MALE"
+  }]){
+    returning{
+      id
+    }
   }
 }
 
-query MyQuery {
-  user(limit: 10, offset: 0) {
-    first_name,
-    last_name,
-    gender
-  }
-}
 
 mutation {
   insert_user_tracking(objects: [{
+    user_id: 3,
+    lat: 13.01932,
+    lng: 77.817743
+  },{
+    user_id: 2,
+    lat: 12.862993,
+    lng: 77.617758
+  },{
     user_id: 1,
-    lat: 12,
-    lng: 78
+    lat: 12.858478,
+    lng: 77.61397
   }], on_conflict: {
     constraint: user_tracking_pkey,
     update_columns: [lat,lng]
@@ -30,5 +80,14 @@ mutation {
     lat,
     lng
   }
+  }
+}
+
+query MyQuery {
+  search_users(args: {i_lat: "12.863898", i_lng: "77.621132", distance: 10}) {
+    id
+    location
+    firstName
+    lastName
   }
 }

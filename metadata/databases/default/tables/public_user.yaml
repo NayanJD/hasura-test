@@ -1,6 +1,11 @@
 table:
   name: user
   schema: public
+configuration:
+  custom_column_names:
+    first_name: firstName
+    last_name: lastName
+  custom_root_fields: {}
 object_relationships:
 - name: gender_enum
   using:
