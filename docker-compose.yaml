@@ -4,7 +4,7 @@ services:
     image: postgres:12
     restart: always
     volumes:
-    - db_data:/var/lib/postgresql/data
+    - ./db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
   # graphql-migration:
@@ -17,13 +17,12 @@ services:
   #   environment:
   #     HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
   graphql-engine:
-    image: hasura/graphql-engine:v2.4.0.cli-migrations-v3
-    # image: hasura/graphql-engine:v2.4.0
+    image: hasura/graphql-engine:v2.2.0.cli-migrations-v3
     ports:
     - "8080:8080"
     depends_on:
     - "postgres"
-    # restart: always
+    restart: always
     volumes:
     - ./migrations:/hasura-migrations
     - ./metadata:/hasura-metadata
